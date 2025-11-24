@@ -1,73 +1,378 @@
 [
     {
         "id": 1,
-        "name": "Salad",
-        "Description": "Crisp romaine, croutons, parmesan, and creamy Caesar dressing",
-        "price": 8.99,
-        "image": "/images/salad.jpg"
+        "name": "Chicken Biryani",
+        "description": "Fragrant basmati rice layered with spiced chicken and caramelized onions",
+        "price": 17.99,
+        "image": "/images/biryani.jpg",
+        "category": "Indian"
     },
     {
         "id": 2,
-        "name": "Schezwan Noodles",
-        "Description": "Hot Dishes",
-        "price": 10.99,
-        "image": "/images/schezwan-noodles.jpg"
+        "name": "Brownie Bite",
+        "description": "Rich chocolate brownie with a soft, fudgy center",
+        "price": 5.99,
+        "image": "/images/brownie-bite.jpg",
+        "category": "Dessert"
     },
     {
         "id": 3,
-        "name": "Pizza",
-        "Description": "Classic wood-fired pizza with fresh mozzarella, basil, and tomato",
-        "price": 8.99,
-        "image": "/images/pizza.jpg"
+        "name": "Classic Cheese Burger",
+        "description": "Juicy chicken patty with cheddar cheese, lettuce, tomato, and pickles",
+        "price": 14.99,
+        "image": "/images/burger.jpg",
+        "category": "American"
     },
     {
         "id": 4,
-        "name": "Dosa",
-        "Description": "Hot Dishes",
-        "price": 11.99,
-        "image": "/images/dosa.jpg"
+        "name": "Butter Chicken",
+        "description": "Tender chicken in a rich, creamy tomato-based curry with aromatic spices",
+        "price": 16.99,
+        "image": "/images/butter-chicken.jpg",
+        "category": "Indian"
     },
     {
         "id": 5,
-        "name": "Idly (2)",
-        "Description": "Hot Dishes",
-        "price": 9.99,
-        "image": "/images/idly.jpg"
+        "name": "Chocolate Cake",
+        "description": "Rich layered chocolate cake with creamy chocolate frosting",
+        "price": 7.99,
+        "image": "/images/cake.jpg",
+        "category": "Dessert"
     },
     {
         "id": 6,
-        "name": "Classic Cheese Burger",
-        "Description": "Juicy chicken patty with cheddar cheese, lettuce, tomato, and pickles",
-        "price": 14.99,
-        "image": "/images/burger.jpg"
+        "name": "Cheesecake",
+        "description": "Creamy New York style cheesecake with graham cracker crust",
+        "price": 8.99,
+        "image": "/images/cheesecake.jpg",
+        "category": "Dessert"
     },
     {
         "id": 7,
-        "name": "Arrabiata Pasta",
-        "Description": "Spicy penne pasta in a rich tomato and garlic chili sauce",
-        "price": 13.99,
-        "image": "/images/pasta.jpg"
+        "name": "Chicken Tacos",
+        "description": "Soft corn tortillas filled with grilled chicken, avocado, and salsa",
+        "price": 9.99,
+        "image": "/images/chicken-tacos.jpg",
+        "category": "Mexican"
     },
     {
         "id": 8,
-        "name": "Chicken Tacos",
-        "Description": "Soft corn tortillas filled with grilled chicken, avocado, and salsa",
-        "price": 9.99,
-        "image": "/images/chicken-tacos.jpg"
+        "name": "Hot Coffee",
+        "description": "Freshly brewed aromatic coffee served hot",
+        "price": 3.99,
+        "image": "/images/coffee.jpg",
+        "category": "Drinks"
     },
     {
         "id": 9,
-        "name": "Fried Rice",
-        "Description": "Hot Dishes",
-        "price": 15.99,
-        "image": "/images/fried-rice.jpg"
+        "name": "Vegetable Curry",
+        "description": "Mixed vegetables cooked in a flavorful Indian curry sauce",
+        "price": 12.99,
+        "image": "/images/curry.jpg",
+        "category": "Indian"
     },
     {
         "id": 10,
-        "name": "Brownie Bite",
-        "Description": "Rich chocolate brownie with a soft, fudgy center",
+        "name": "Dal Tadka",
+        "description": "Yellow lentils tempered with cumin, garlic, and aromatic spices",
+        "price": 10.99,
+        "image": "/images/dal.jpg",
+        "category": "Indian"
+    },
+    {
+        "id": 11,
+        "name": "Donuts (3)",
+        "description": "Assorted glazed donuts with colorful toppings",
+        "price": 5.99,
+        "image": "/images/donuts.jpg",
+        "category": "Dessert"
+    },
+    {
+        "id": 12,
+        "name": "Falafel Wrap",
+        "description": "Crispy chickpea fritters wrapped with hummus and fresh veggies",
+        "price": 10.99,
+        "image": "/images/falafel.jpg",
+        "category": "Middle Eastern"
+    },
+    {
+        "id": 13,
+        "name": "Fish and Chips",
+        "description": "Beer-battered fish fillets with crispy fries and tartar sauce",
+        "price": 16.99,
+        "image": "/images/fish-and-chips.jpg",
+        "category": "American"
+    },
+    {
+        "id": 14,
+        "name": "Fried Rice",
+        "description": "Wok-fried rice with vegetables, egg, and savory soy sauce",
+        "price": 12.99,
+        "image": "/images/fried-rice.jpg",
+        "category": "Asian"
+    },
+    {
+        "id": 15,
+        "name": "French Fries",
+        "description": "Crispy golden fries seasoned with salt and herbs",
+        "price": 4.99,
+        "image": "/images/fries.jpg",
+        "category": "Snacks"
+    },
+    {
+        "id": 16,
+        "name": "Gulab Jamun",
+        "description": "Deep-fried milk dumplings soaked in rose-flavored sugar syrup",
+        "price": 5.99,
+        "image": "/images/gulab-jamun.jpg",
+        "category": "Indian"
+    },
+    {
+        "id": 17,
+        "name": "Classic Hotdog",
+        "description": "Grilled beef hotdog in a soft bun with mustard and ketchup",
+        "price": 6.99,
+        "image": "/images/hotdog.jpg",
+        "category": "American"
+    },
+    {
+        "id": 18,
+        "name": "Hummus with Pita",
+        "description": "Creamy chickpea dip served with warm pita bread",
+        "price": 7.99,
+        "image": "/images/hummus.jpg",
+        "category": "Middle Eastern"
+    },
+    {
+        "id": 19,
+        "name": "Ice Cream Sundae",
+        "description": "Vanilla ice cream with chocolate sauce, whipped cream and cherry",
+        "price": 6.99,
+        "image": "/images/ice-cream.jpg",
+        "category": "Dessert"
+    },
+    {
+        "id": 20,
+        "name": "Idly (2)",
+        "description": "Soft steamed rice cakes served with sambar and coconut chutney",
+        "price": 7.99,
+        "image": "/images/idly.jpg",
+        "category": "Indian"
+    },
+    {
+        "id": 21,
+        "name": "Chicken Kebab",
+        "description": "Grilled skewered chicken with Middle Eastern spices",
+        "price": 14.99,
+        "image": "/images/kebab.jpg",
+        "category": "Middle Eastern"
+    },
+    {
+        "id": 22,
+        "name": "Lasagna",
+        "description": "Layered pasta with beef ragù, béchamel, and melted cheese",
+        "price": 15.99,
+        "image": "/images/lasagna.jpg",
+        "category": "Italian"
+    },
+    {
+        "id": 23,
+        "name": "Masala Chai",
+        "description": "Traditional Indian spiced tea with cardamom, ginger, and cinnamon",
+        "price": 3.99,
+        "image": "/images/masala-chai.jpg",
+        "category": "Indian"
+    },
+    {
+        "id": 24,
+        "name": "Chocolate Milkshake",
+        "description": "Thick and creamy chocolate milkshake topped with whipped cream",
+        "price": 6.99,
+        "image": "/images/milkshake.jpg",
+        "category": "Drinks"
+    },
+    {
+        "id": 25,
+        "name": "Mojito",
+        "description": "Refreshing mint and lime mocktail with soda water",
+        "price": 5.99,
+        "image": "/images/mojito.jpg",
+        "category": "Drinks"
+    },
+    {
+        "id": 26,
+        "name": "Momos (6)",
+        "description": "Steamed dumplings filled with spiced vegetables or chicken",
         "price": 9.99,
-        "image": "/images/brownie-bite.jpg"
+        "image": "/images/momos.jpg",
+        "category": "Indian"
+    },
+    {
+        "id": 27,
+        "name": "Naan Bread",
+        "description": "Soft, fluffy Indian bread baked in a tandoor oven",
+        "price": 3.99,
+        "image": "/images/naan.jpg",
+        "category": "Indian"
+    },
+    {
+        "id": 28,
+        "name": "Loaded Nachos",
+        "description": "Crispy tortilla chips topped with cheese, jalapeños, and salsa",
+        "price": 9.99,
+        "image": "/images/nachos.jpg",
+        "category": "Mexican"
+    },
+    {
+        "id": 29,
+        "name": "Palak Paneer",
+        "description": "Cottage cheese cubes in a creamy spinach gravy with Indian spices",
+        "price": 13.99,
+        "image": "/images/palak-paneer.jpg",
+        "category": "Indian"
+    },
+    {
+        "id": 30,
+        "name": "Pancakes",
+        "description": "Fluffy buttermilk pancakes with maple syrup and fresh berries",
+        "price": 10.99,
+        "image": "/images/pancakes.jpg",
+        "category": "Breakfast"
+    },
+    {
+        "id": 31,
+        "name": "Paneer Tikka",
+        "description": "Marinated cottage cheese cubes grilled to perfection with spices",
+        "price": 14.99,
+        "image": "/images/paneer-tikka.jpg",
+        "category": "Indian"
+    },
+    {
+        "id": 32,
+        "name": "Arrabiata Pasta",
+        "description": "Spicy penne pasta in a rich tomato and garlic chili sauce",
+        "price": 13.99,
+        "image": "/images/pasta.jpg",
+        "category": "Italian"
+    },
+    {
+        "id": 33,
+        "name": "Pho",
+        "description": "Vietnamese rice noodle soup with aromatic herbs and broth",
+        "price": 14.99,
+        "image": "/images/pho.jpg",
+        "category": "Asian"
+    },
+    {
+        "id": 34,
+        "name": "Pizza",
+        "description": "Classic wood-fired pizza with fresh mozzarella, basil, and tomato",
+        "price": 12.99,
+        "image": "/images/pizza.jpg",
+        "category": "Italian"
+    },
+    {
+        "id": 35,
+        "name": "Ramen",
+        "description": "Japanese noodle soup with rich broth, egg, and toppings",
+        "price": 15.99,
+        "image": "/images/ramen.jpg",
+        "category": "Asian"
+    },
+    {
+        "id": 36,
+        "name": "Caesar Salad",
+        "description": "Crisp romaine, croutons, parmesan, and creamy Caesar dressing",
+        "price": 8.99,
+        "image": "/images/salad.jpg",
+        "category": "Healthy"
+    },
+    {
+        "id": 37,
+        "name": "Samosa (2)",
+        "description": "Crispy pastry filled with spiced potatoes and peas",
+        "price": 6.99,
+        "image": "/images/samosa.jpg",
+        "category": "Indian"
+    },
+    {
+        "id": 38,
+        "name": "Club Sandwich",
+        "description": "Triple-decker sandwich with chicken, bacon, lettuce, and tomato",
+        "price": 11.99,
+        "image": "/images/sandwich.jpg",
+        "category": "American"
+    },
+    {
+        "id": 39,
+        "name": "Chicken Shawarma",
+        "description": "Spiced chicken wrapped in pita with garlic sauce and pickles",
+        "price": 12.99,
+        "image": "/images/shawarma.jpg",
+        "category": "Middle Eastern"
+    },
+    {
+        "id": 40,
+        "name": "Berry Smoothie",
+        "description": "Fresh mixed berries blended with yogurt and honey",
+        "price": 6.99,
+        "image": "/images/smoothie.jpg",
+        "category": "Drinks"
+    },
+    {
+        "id": 41,
+        "name": "Tomato Soup",
+        "description": "Creamy tomato soup served with garlic bread croutons",
+        "price": 6.99,
+        "image": "/images/soup.jpg",
+        "category": "Healthy"
+    },
+    {
+        "id": 42,
+        "name": "Spring Rolls (4)",
+        "description": "Crispy rolls filled with vegetables served with sweet chili sauce",
+        "price": 7.99,
+        "image": "/images/spring-rolls.jpg",
+        "category": "Asian"
+    },
+    {
+        "id": 43,
+        "name": "Grilled Steak",
+        "description": "Juicy grilled ribeye steak with herb butter and seasonal vegetables",
+        "price": 24.99,
+        "image": "/images/steak.jpg",
+        "category": "American"
+    },
+    {
+        "id": 44,
+        "name": "Sushi Platter",
+        "description": "Fresh assorted sushi rolls with wasabi and pickled ginger",
+        "price": 18.99,
+        "image": "/images/sushi.jpg",
+        "category": "Asian"
+    },
+    {
+        "id": 45,
+        "name": "Tandoori Chicken",
+        "description": "Chicken marinated in yogurt and spices, cooked in a clay oven",
+        "price": 15.99,
+        "image": "/images/tandoori-chicken.jpg",
+        "category": "Indian"
+    },
+    {
+        "id": 46,
+        "name": "Belgian Waffles",
+        "description": "Crispy waffles topped with fresh fruits and whipped cream",
+        "price": 11.99,
+        "image": "/images/waffles.jpg",
+        "category": "Breakfast"
+    },
+    {
+        "id": 47,
+        "name": "Chicken Wings",
+        "description": "Crispy fried chicken wings tossed in your choice of sauce",
+        "price": 12.99,
+        "image": "/images/wings.jpg",
+        "category": "American"
     }
-  ]
-  
+]
