@@ -1,48 +1,24 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { addToCart, removeFromCart } from '../redux/cartSlice';
-import { toggleFavorite } from '../redux/favoritesSlice';
+import { useCart, useFavorites } from '../hooks';
 import { Heart } from 'lucide-react';
-import toast from 'react-hot-toast';
 
 export default function MenuItem({ item }) {
-  const dispatch = useDispatch();
-  const cartItem = useSelector(state =>
-    state.cart.items.find(cart => cart.id === item.id)
-  );
-  const isFavorite = useSelector(state =>
-    state.favorites.items.some(fav => fav.id === item.id)
-  );
+  const { getItemQuantity, addItem, removeItem } = useCart();
+  const { isFavorite, toggle: toggleFavorite } = useFavorites();
 
-  const handleAdd = () => {
-    dispatch(addToCart(item));
-    toast.success(`${item.name} added to cart`);
-  };
-
-  const handleRemove = () => {
-    dispatch(removeFromCart(item.id));
-    toast.success(`${item.name} removed`);
-  };
-
-  const handleToggleFavorite = () => {
-    dispatch(toggleFavorite(item));
-    if (isFavorite) {
-      toast.success(`${item.name} removed from favorites`);
-    } else {
-      toast.success(`${item.name} added to favorites`);
-    }
-  };
+  const quantity = getItemQuantity(item.id);
+  const favorited = isFavorite(item.id);
 
   return (
     <div className="bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-lg shadow hover:shadow-md transition overflow-hidden relative">
       {/* Favorite Button */}
       <button
-        onClick={handleToggleFavorite}
+        onClick={() => toggleFavorite(item)}
         className="absolute top-3 right-3 z-10 p-2 rounded-full bg-white dark:bg-gray-800 shadow-md hover:scale-110 transition-transform"
-        aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+        aria-label={favorited ? 'Remove from favorites' : 'Add to favorites'}
       >
         <Heart
           size={20}
-          className={isFavorite ? 'fill-red-500 text-red-500' : 'text-gray-400 dark:text-gray-500'}
+          className={favorited ? 'fill-red-500 text-red-500' : 'text-gray-400 dark:text-gray-500'}
         />
       </button>
 
@@ -68,17 +44,17 @@ export default function MenuItem({ item }) {
         <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">{item.description}</p>
         <p className="text-gray-800 dark:text-gray-200 font-medium mb-3">${item.price.toFixed(2)}</p>
 
-        {cartItem ? (
+        {quantity > 0 ? (
           <div className="flex items-center gap-2">
             <button
-              onClick={handleRemove}
+              onClick={() => removeItem(item.id, item.name)}
               className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
             >
               -
             </button>
-            <span className="font-medium dark:text-white">{cartItem.quantity}</span>
+            <span className="font-medium dark:text-white">{quantity}</span>
             <button
-              onClick={handleAdd}
+              onClick={() => addItem(item)}
               className="px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600"
             >
               +
@@ -86,7 +62,7 @@ export default function MenuItem({ item }) {
           </div>
         ) : (
           <button
-            onClick={handleAdd}
+            onClick={() => addItem(item)}
             className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
           >
             Add to Cart

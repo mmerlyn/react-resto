@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Menu, X, Home, Pizza, ShoppingCart, Heart, Clock, Sun, Moon } from 'lucide-react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -6,13 +6,25 @@ import { toggleTheme } from '../redux/themeSlice';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [cartBounce, setCartBounce] = useState(false);
   const dispatch = useDispatch();
+  const prevCartCount = useRef(0);
 
   const cartCount = useSelector(state =>
     state.cart.items.reduce((sum, item) => sum + item.quantity, 0)
   );
   const favoritesCount = useSelector(state => state.favorites.items.length);
   const darkMode = useSelector(state => state.theme.darkMode);
+
+  // Animate cart badge when count increases
+  useEffect(() => {
+    if (cartCount > prevCartCount.current) {
+      setCartBounce(true);
+      const timer = setTimeout(() => setCartBounce(false), 300);
+      return () => clearTimeout(timer);
+    }
+    prevCartCount.current = cartCount;
+  }, [cartCount]);
 
   const navLinkBase =
     'flex items-center gap-2 px-3 py-1.5 rounded-full transition-colors duration-200';
@@ -77,7 +89,7 @@ export default function Header() {
             <div className="relative flex items-center">
               <ShoppingCart size={18} />
               {cartCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">
+                <span className={`absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full ${cartBounce ? 'badge-animate' : ''}`}>
                   {cartCount}
                 </span>
               )}
@@ -148,7 +160,7 @@ export default function Header() {
             <div className="relative flex items-center">
               <ShoppingCart size={18} />
               {cartCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">
+                <span className={`absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full ${cartBounce ? 'badge-animate' : ''}`}>
                   {cartCount}
                 </span>
               )}

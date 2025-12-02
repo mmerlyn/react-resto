@@ -24,11 +24,22 @@ const cartSlice = createSlice({
         state.items = state.items.filter(item => item.id !== action.payload);
       }
     },
+    setQuantity(state, action) {
+      const { id, quantity } = action.payload;
+      if (quantity <= 0) {
+        state.items = state.items.filter(item => item.id !== id);
+      } else {
+        const item = state.items.find(item => item.id === id);
+        if (item) {
+          item.quantity = quantity;
+        }
+      }
+    },
     clearCart(state) {
       state.items = [];
     }
   },
 });
 
-export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, setQuantity, clearCart } = cartSlice.actions;
 export default cartSlice.reducer;
