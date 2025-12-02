@@ -88,14 +88,6 @@
         "category": "Dessert"
     },
     {
-        "id": 12,
-        "name": "Falafel Wrap",
-        "description": "Crispy chickpea fritters wrapped with hummus and fresh veggies",
-        "price": 10.99,
-        "image": "/images/falafel.jpg",
-        "category": "Middle Eastern"
-    },
-    {
         "id": 13,
         "name": "Fish and Chips",
         "description": "Beer-battered fish fillets with crispy fries and tartar sauce",

@@ -1,57 +1,22 @@
-import React, { useState, useMemo } from 'react';
-import { useSelector } from 'react-redux';
+import { useMenuSearch } from '../hooks';
 import MenuItem from '../components/MenuItem';
-import { Search, SlidersHorizontal } from 'lucide-react';
+import { Search, SlidersHorizontal, Loader } from 'lucide-react';
 
 export default function MenuPage() {
-  const menuItems = useSelector(state => state.menu.items);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const [sortBy, setSortBy] = useState('default');
-
-  const categories = useMemo(() => {
-    const cats = ['All', ...new Set(menuItems.map(item => item.category).filter(Boolean))];
-    return cats;
-  }, [menuItems]);
-
-  const filteredAndSortedItems = useMemo(() => {
-    let result = [...menuItems];
-
-    // Filter by search query
-    if (searchQuery.trim()) {
-      const query = searchQuery.toLowerCase();
-      result = result.filter(
-        item =>
-          item.name.toLowerCase().includes(query) ||
-          item.description?.toLowerCase().includes(query)
-      );
-    }
-
-    // Filter by category
-    if (selectedCategory !== 'All') {
-      result = result.filter(item => item.category === selectedCategory);
-    }
-
-    // Sort
-    switch (sortBy) {
-      case 'price-low':
-        result.sort((a, b) => a.price - b.price);
-        break;
-      case 'price-high':
-        result.sort((a, b) => b.price - a.price);
-        break;
-      case 'name-asc':
-        result.sort((a, b) => a.name.localeCompare(b.name));
-        break;
-      case 'name-desc':
-        result.sort((a, b) => b.name.localeCompare(a.name));
-        break;
-      default:
-        break;
-    }
-
-    return result;
-  }, [menuItems, searchQuery, selectedCategory, sortBy]);
+  const {
+    allItems,
+    filteredItems,
+    categories,
+    searchQuery,
+    selectedCategory,
+    sortBy,
+    hasActiveFilters,
+    isSearching,
+    setSearchQuery,
+    setSelectedCategory,
+    setSortBy,
+    clearFilters,
+  } = useMenuSearch();
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-6">
@@ -67,8 +32,11 @@ export default function MenuPage() {
             placeholder="Search menu items..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
+            className="w-full pl-10 pr-10 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
           />
+          {isSearching && (
+            <Loader className="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-500 animate-spin" size={18} />
+          )}
         </div>
 
         {/* Category Filters and Sort */}
@@ -109,21 +77,18 @@ export default function MenuPage() {
       </div>
 
       {/* Results Count */}
-      {searchQuery || selectedCategory !== 'All' ? (
+      {hasActiveFilters && (
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
-          Showing {filteredAndSortedItems.length} of {menuItems.length} items
+          Showing {filteredItems.length} of {allItems.length} items
         </p>
-      ) : null}
+      )}
 
       {/* Menu Grid */}
-      {filteredAndSortedItems.length === 0 ? (
+      {filteredItems.length === 0 ? (
         <div className="text-center py-12">
           <p className="text-gray-600 dark:text-gray-400 text-lg">No items found.</p>
           <button
-            onClick={() => {
-              setSearchQuery('');
-              setSelectedCategory('All');
-            }}
+            onClick={clearFilters}
             className="mt-2 text-blue-600 dark:text-blue-400 hover:underline"
           >
             Clear filters
@@ -131,7 +96,7 @@ export default function MenuPage() {
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredAndSortedItems.map(item => (
+          {filteredItems.map(item => (
             <MenuItem key={item.id} item={item} />
           ))}
         </div>
