@@ -1,32 +1,41 @@
 # React-Resto
 
-A food ordering app I built to learn React and state management.
+A food ordering app I built to practice React and state management.
 
-[Live Demo](https://react-resto-app.vercel.app)
+[Live Application](https://react-resto-app.vercel.app)
 
-## Features
+## About
 
-- Browse menu items across multiple categories
-- Search, filter by category, and sort by price/name
-- Add items to cart with quantity controls
-- Save favorite items
-- Place orders and view order history with reorder option
-- Dark/light mode toggle
-- Fully responsive design
-- Data persists in localStorage
+I wanted to build something more complex - something with interconnected features and real state management challenges. A restaurant ordering system fit well: cart, favorites, order history, and search all need to work together.
 
 ## Tech Stack
 
-- **React** - Components, hooks, routing
-- **Redux Toolkit** - Global state management
-- **React Router** - Client-side navigation
-- **Tailwind CSS** - Styling
+React 19, Redux Toolkit, React Router, Tailwind CSS, Lucide React, React Hot Toast
 
-## Learnings
+## Features
 
-- Component structure and props
-- State management with Redux (slices, selectors, dispatch)
-- Custom hooks (useCart, useFavorites, useDebounce)
-- React Router for navigation
+- Browse 100+ menu items with search, category filter, and sorting
+- Cart with quantity controls
+- Save favorites
+- Order history with reorder
+- Dark/light mode
+- Data persists in localStorage
+
+## How I Built
+
+- **State**: Redux Toolkit with slices for cart, favorites, orders, and theme
+- **Logic**: Custom hooks (`useCart`, `useFavorites`, `useMenuSearch`) handle business logic
+- **Persistence**: Redux store subscribes to changes and syncs to localStorage
+- **Performance**: Debounced search input, memoized filtering and sorting
+
+## What I Learned
+
+- React hooks and component patterns
+- State management with Redux Toolkit
+- Writing custom hooks
+- Performance optimization (memoization, debouncing)
 - Persisting state with localStorage
-- Working with arrays (map, filter, reduce)
+
+## License
+
+MIT
